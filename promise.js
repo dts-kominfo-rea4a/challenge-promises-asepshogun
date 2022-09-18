@@ -13,24 +13,22 @@ const promiseOutput = (opsi) => {
     }
     // Kondisi terpenuhi
     else {
-      resolve(opsi);
-        (async () => {
-          var hasilx = await promiseTheaterIXX(); 
-          var hasilc = await promiseTheaterVGC(); 
-          counter = 0
-          for (tmphasilx of hasilx) {
-            if (tmphasilx['hasil'] == opsi) {
-              counter++;
-            }
-            
-          };
-          for (tmphasilc of hasilc) {
-            if (tmphasilc['hasil'] == opsi) {
-              counter++;
-            }
-          };
-          return counter;
-        })();
+      (async () => {
+        var hasilx = await promiseTheaterIXX(); 
+        var hasilc = await promiseTheaterVGC(); 
+        counter = 0
+        for (tmphasilx of hasilx) {
+          if (tmphasilx['hasil'] == opsi) {
+            counter++;
+          }   
+        };
+        for (tmphasilc of hasilc) {
+          if (tmphasilc['hasil'] == opsi) {
+            counter++;
+          }
+        };
+        resolve(counter);
+      })();
     }
   });
 };
