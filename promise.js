@@ -17,33 +17,19 @@ const promiseOutput = (opsi) => {
         (async () => {
           var hasilx = await promiseTheaterIXX(); 
           var hasilc = await promiseTheaterVGC(); 
-          counterm = 0
-          countertm = 0
+          counter = 0
           for (tmphasilx of hasilx) {
-            if (tmphasilx['hasil'] == opsi && opsi == 'tidak marah') {
-              // console.log(tmphasilx['namaFilm']+ ' - ' +tmphasilx['hasil'])
-              countertm++;
-            }else if (tmphasilx['hasil'] == opsi && opsi == 'marah') {
-              // console.log(tmphasilx['namaFilm']+ ' - ' +tmphasilx['hasil'])
-              counterm++;
+            if (tmphasilx['hasil'] == opsi) {
+              counter++;
             }
             
           };
           for (tmphasilc of hasilc) {
-            if (tmphasilc['hasil'] == opsi && opsi == 'tidak marah') {
-              // console.log(tmphasilc['namaFilm']+ ' - ' +tmphasilc['hasil'])
-              countertm++;
-            }
-            else if (tmphasilc['hasil'] == opsi && opsi == 'marah') {
-              // console.log(tmphasilc['namaFilm']+ ' - ' +tmphasilc['hasil'])
-              counterm++;
+            if (tmphasilc['hasil'] == opsi) {
+              counter++;
             }
           };
-          if(opsi == 'marah'){
-            console.log(counterm);
-          }else if (opsi == 'tidak marah'){
-            console.log(countertm);
-          }
+          console.log(counter);
         })();
     }
   });
