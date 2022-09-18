@@ -29,7 +29,7 @@ const promiseOutput = (opsi) => {
               counter++;
             }
           };
-          console.log(counter);
+          return counter;
         })();
     }
   });
